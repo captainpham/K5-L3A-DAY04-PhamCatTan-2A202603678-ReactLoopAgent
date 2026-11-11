@@ -1,0 +1,2 @@
+# Load .env automatically in run.py.
+python-dotenv>=1.0,<2

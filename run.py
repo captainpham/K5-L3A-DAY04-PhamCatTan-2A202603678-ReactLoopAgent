@@ -2,6 +2,10 @@ import argparse
 import json
 import os
 import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+
 from agent import run_agent
 from providers import Provider
 from status_tools import StatusTools
@@ -15,6 +19,7 @@ def run(question, mode, provider_name, model, max_steps, fail=False, bonus=False
 
 
 def main():
+    load_dotenv(Path(__file__).resolve().parent / '.env')
     p = argparse.ArgumentParser(description='Chạy status agent')
     p.add_argument('question', help='Câu hỏi cho agent')
     p.add_argument('--bonus', action='store_true', help='Dùng bộ tools bonus')
